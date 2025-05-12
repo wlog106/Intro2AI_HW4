@@ -9,10 +9,10 @@ class Agent:
         self.round = [0 for _ in range(choiceNum)]
         self.choiceNum = choiceNum
         self.epsilon = epsilon
-        self.q = [0 for _ in range(choiceNum)]
+        self.q = [0.0 for _ in range(choiceNum)]
 
     def select_action(self):
-        v = random.uniform(0.0, 1.0)
+        v = random.random()
         if v < self.epsilon:
             action = random.randint(0, self.choiceNum-1)
         else:
@@ -31,6 +31,6 @@ class Agent:
             self.round[action] += 1
 
     def reset(self):
-        self.q = [0 for _ in range(self.choiceNum)]
+        self.q = [0.0 for _ in range(self.choiceNum)]
         self.round = [0 for _ in range(self.choiceNum)]
 
